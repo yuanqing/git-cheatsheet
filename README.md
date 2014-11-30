@@ -65,14 +65,14 @@ $ git reset --hard origin/master
 # Stage a modified or untracked file
 $ git add foo.js
 
+# Stage a deleted file
+$ git rm foo.js
+
 # Stage all modified and untracked files (ignores deleted files)
 $ git add .
 
 # Stage all modified and deleted files (ignores untracked files)
 $ git add -u
-
-# Stage a deleted file
-$ git rm foo.js
 
 # Unstage a file
 $ git reset foo.js
@@ -89,7 +89,13 @@ $ git commit -m 'foo'
 # Amend the last commit message
 $ git commit --amend -m 'bar'
 
-# Merge multiple commits into one
+# Amend the last commit message after push
+$ git commit -m 'foo'
+$ git push origin master
+$ git commit --amend -m 'bar'
+$ git push origin master -f
+
+# Merge multiple commits (eg. the last 3 commits) into one
 $ git rebase -i HEAD~3
 # 1. Mark all commits other than the first with `squash`, then save and quit.
 # 2. Enter a new commit message, then save and quit.
