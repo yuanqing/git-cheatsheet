@@ -86,6 +86,9 @@ $ git log
 # Make a commit
 $ git commit -m 'foo'
 
+# Undo the last commit
+$ git reset --soft HEAD~1
+
 # Amend the last commit message
 $ git commit --amend -m 'bar'
 
