@@ -44,6 +44,18 @@ $ git checkout master
 $ git merge --squash hotfix
 ```
 
+## Review changes
+```bash
+# Compare modified files with the last commit
+$ git diff
+
+# Compare staged files with the last commit
+$ git diff --cached
+
+# See changes made in the last commit
+$ git diff HEAD^ HEAD
+```
+
 ## Discard changes
 ```bash
 # Discard changes to a single file
@@ -76,6 +88,9 @@ $ git add -u
 
 # Unstage a file
 $ git reset foo.js
+
+# Unstage all files
+$ git reset *
 ```
 
 ## Commit
@@ -96,7 +111,12 @@ $ git commit --amend -m 'bar'
 $ git commit -m 'foo'
 $ git push origin master
 $ git commit --amend -m 'bar'
-$ git push origin master -f
+$ git push origin +master
+
+# Delete the last commit (best to avoid)
+$ git reset --soft HEAD~1
+$ git push origin +master
+$
 
 # Merge multiple commits (eg. the last 3 commits) into one
 $ git rebase -i HEAD~3
