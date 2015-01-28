@@ -1,5 +1,7 @@
 # Git Cheatsheet
 
+> A handy list of commonly used Git commands.
+
 ## Commands
 
 ### Initialise
@@ -112,17 +114,17 @@ $ git log
 # Make a commit
 $ git commit -m 'foo'
 
-# Amend the last commit message before a `git push`
+# Amend the last commit message
 $ git commit --amend -m 'bar'
 
-# Amend the last commit message after a `git push`
+# Amend the last commit message after having done a `git push`
 $ git commit --amend -m 'bar'
 $ git push origin +master
 
-# Delete the last commit before a `git push`
+# Delete the last commit
 $ git reset --soft HEAD~1
 
-# Delete the last commit after a `git push`
+# Delete the last commit after having done a `git push`
 $ git reset --soft HEAD~1
 $ git push origin +master
 
@@ -134,5 +136,28 @@ $ git rebase -i HEAD~3
 
 ### Push
 ```sh
+# Push to a remote branch (eg. "master")
 $ git push origin master
+```
+
+## Aliases
+
+```sh
+alias g='git'
+alias ga='git add'
+alias gc='git commit'
+alias gcm='git commit --amend -m'
+alias gcl='git clone'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gf='git fetch'
+alias gi='git init'
+alias gl='git log'
+alias gp='git push'
+alias gpom='git push origin master'
+alias gpl='git pull'
+alias gr='git reset'
+alias grm='git rm'
+alias gs='git status'
+alias gu='git reset --soft HEAD^'
 ```
