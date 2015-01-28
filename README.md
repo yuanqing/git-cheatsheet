@@ -1,13 +1,15 @@
 # Git Cheatsheet
 
-## Initialise
-```bash
+## Commands
+
+### Initialise
+```sh
 $ git init
 $ git remote add origin https://github.com/yuanqing/git-cheatsheet.git
 ```
 
-## Clone
-```bash
+### Clone
+```sh
 # Clone into current directory
 $ git clone https://github.com/yuanqing/git-cheatsheet.git
 
@@ -15,8 +17,8 @@ $ git clone https://github.com/yuanqing/git-cheatsheet.git
 $ git clone https://github.com/yuanqing/git-cheatsheet.git foo
 ```
 
-## Branch
-```bash
+### Branch
+```sh
 # List all branches
 $ git branch
 
@@ -44,20 +46,20 @@ $ git checkout master
 $ git merge --squash hotfix
 ```
 
-## Review changes
-```bash
+### Review changes
+```sh
 # Compare modified files with the last commit
 $ git diff
 
 # Compare staged files with the last commit
 $ git diff --cached
 
-# See changes made in the last commit
+# Compare the last and second-last commits
 $ git diff HEAD^ HEAD
 ```
 
-## Discard changes
-```bash
+### Discard changes
+```sh
 # Discard changes to a single file
 $ git checkout foo.js
 
@@ -66,14 +68,23 @@ $ git checkout -- .
 
 # Delete all untracked files
 $ git clean -df
+```
 
-# Sync with a remote branch, discarding changes to all files
+### Syncing
+```sh
+# Sync with the remote branch
+$ git fetch
+
+# Sync with the remote branch, and merge it into the current local branch
+$ git pull
+
+# Sync with a remote branch, discarding changes to all files in the current local branch
 $ git fetch --all
 $ git reset --hard origin/master
 ```
 
-## Staging
-```bash
+### Staging
+```sh
 # Stage a modified or untracked file
 $ git add foo.js
 
@@ -93,30 +104,27 @@ $ git reset foo.js
 $ git reset *
 ```
 
-## Commit
-```bash
+### Commit
+```sh
 # List commit history
 $ git log
 
 # Make a commit
 $ git commit -m 'foo'
 
-# Undo the last commit
-$ git reset --soft HEAD~1
-
-# Amend the last commit message
+# Amend the last commit message before a `git push`
 $ git commit --amend -m 'bar'
 
-# Amend the last commit message after push
-$ git commit -m 'foo'
-$ git push origin master
+# Amend the last commit message after a `git push`
 $ git commit --amend -m 'bar'
 $ git push origin +master
 
-# Delete the last commit (best to avoid)
+# Delete the last commit before a `git push`
+$ git reset --soft HEAD~1
+
+# Delete the last commit after a `git push`
 $ git reset --soft HEAD~1
 $ git push origin +master
-$
 
 # Merge multiple commits (eg. the last 3 commits) into one
 $ git rebase -i HEAD~3
@@ -124,7 +132,7 @@ $ git rebase -i HEAD~3
 # 2. Enter a new commit message, then save and quit.
 ```
 
-## Push
-```bash
+### Push
+```sh
 $ git push origin master
 ```
