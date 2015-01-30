@@ -12,7 +12,7 @@ $ git remote add origin https://github.com/yuanqing/git-cheatsheet.git
 
 ### Clone
 ```sh
-# Clone into current directory
+# Clone into the current directory
 $ git clone https://github.com/yuanqing/git-cheatsheet.git
 
 # Clone into a specific directory
@@ -27,11 +27,11 @@ $ git branch
 # Create a new branch
 $ git branch hotfix
 
-# Create a new branch, and switch to it
-$ git checkout -b hotfix
-
 # Switch to a branch
 $ git checkout hotfix
+
+# Create a new branch, and switch to it
+$ git checkout -b hotfix
 
 # Delete a local branch
 $ git branch -d hotfix
@@ -79,10 +79,6 @@ $ git fetch
 
 # Sync with the remote branch, and merge it into the current local branch
 $ git pull
-
-# Sync with a remote branch, discarding changes to all files in the current local branch
-$ git fetch --all
-$ git reset --hard origin/master
 ```
 
 ### Staging
@@ -136,11 +132,12 @@ $ git rebase -i HEAD~3
 
 ### Push
 ```sh
-# Push to a remote branch (eg. "master")
 $ git push origin master
 ```
 
 ## Aliases
+
+Put the following in your `~/.bashrc` or `~/.bash_profile`:
 
 ```sh
 alias g='git'
