@@ -7,16 +7,16 @@
 ### Initialise
 ```sh
 $ git init
-$ git remote add origin https://github.com/yuanqing/git-cheatsheet.git
+$ git remote add origin https://github.com/path/to/repo.git
 ```
 
 ### Clone
 ```sh
 # Clone into the current directory
-$ git clone https://github.com/yuanqing/git-cheatsheet.git
+$ git clone https://github.com/path/to/repo.git
 
 # Clone into a specific directory
-$ git clone https://github.com/yuanqing/git-cheatsheet.git foo
+$ git clone https://github.com/path/to/repo.git
 ```
 
 ### Branch
@@ -34,7 +34,7 @@ $ git checkout hotfix
 $ git checkout -b hotfix
 
 # Delete a local branch
-$ git branch -d hotfix
+$ git branch -D hotfix
 
 # Delete a remote branch
 $ git push origin :hotfix
@@ -50,6 +50,9 @@ $ git merge --squash hotfix
 
 ### Review changes
 ```sh
+# View changes made to a file
+$ git diff foo
+
 # Compare modified files with the last commit
 $ git diff
 
@@ -63,7 +66,7 @@ $ git diff HEAD^ HEAD
 ### Discard changes
 ```sh
 # Discard changes to a single file
-$ git checkout foo.js
+$ git checkout foo
 
 # Discard changes to all files
 $ git checkout -- .
@@ -72,22 +75,22 @@ $ git checkout -- .
 $ git clean -df
 ```
 
-### Syncing
+### Syncing with remote
 ```sh
-# Sync with the remote branch
+# Syn with the remote branch
 $ git fetch
 
-# Sync with the remote branch, and merge it into the current local branch
+# Sync with the remote branch, and merge it into the local branch
 $ git pull
 ```
 
 ### Staging
 ```sh
 # Stage a modified or untracked file
-$ git add foo.js
+$ git add foo
 
 # Stage a deleted file
-$ git rm foo.js
+$ git rm foo
 
 # Stage all modified and untracked files (ignores deleted files)
 $ git add .
@@ -96,7 +99,7 @@ $ git add .
 $ git add -u
 
 # Unstage a file
-$ git reset foo.js
+$ git reset foo
 
 # Unstage all files
 $ git reset *
