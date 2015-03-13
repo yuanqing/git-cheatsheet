@@ -7,16 +7,16 @@
 ### Initialise
 ```sh
 $ git init
-$ git remote add origin https://github.com/path/to/repo.git
+$ git remote add origin https://github.com/foo/bar.git
 ```
 
 ### Clone
 ```sh
 # Clone into the current directory
-$ git clone https://github.com/path/to/repo.git
+$ git clone https://github.com/foo/bar.git
 
 # Clone into a specific directory
-$ git clone https://github.com/path/to/repo.git
+$ git clone https://github.com/foo/bar.git
 ```
 
 ### Branch
@@ -98,11 +98,11 @@ $ git add .
 # Stage all modified and deleted files (ignores untracked files)
 $ git add -u
 
-# Unstage a file
-$ git reset foo
+# Unstage a single file
+$ git reset -- foo
 
 # Unstage all files
-$ git reset *
+$ git reset -- .
 ```
 
 ### Commit
@@ -122,6 +122,10 @@ $ git push origin +master
 
 # Delete the last commit
 $ git reset --soft HEAD~1
+
+# Delete the last commit, and unstage all files
+$ git reset --soft HEAD~1
+$ git reset -- .
 
 # Delete the last commit after having done a `git push`
 $ git reset --soft HEAD~1
@@ -158,10 +162,13 @@ alias gl='git log'
 alias gm='git merge'
 alias gp='git push'
 alias gpl='git pull'
+alias gpo='git push origin'
 alias gpod='git push origin dev'
+alias gpoh='git push origin hotfix'
 alias gpom='git push origin master'
 alias gr='git reset'
+alias grao='git remote add origin'
 alias grm='git rm'
 alias gs='git status'
-alias gu='git reset --soft HEAD^'
+alias gu='git reset --soft HEAD^ && git reset .'
 ```
