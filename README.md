@@ -5,21 +5,20 @@
 ## Commands
 
 ### Initialise
+
 ```sh
 $ git init
 $ git remote add origin https://github.com/foo/bar.git
 ```
 
 ### Clone
-```sh
-# Clone into the current directory
-$ git clone https://github.com/foo/bar.git
 
-# Clone into a specific directory
+```sh
 $ git clone https://github.com/foo/bar.git
 ```
 
 ### Branch
+
 ```sh
 # List all branches
 $ git branch
@@ -49,6 +48,7 @@ $ git merge --squash hotfix
 ```
 
 ### Review changes
+
 ```sh
 # View changes made to a file
 $ git diff foo
@@ -64,6 +64,7 @@ $ git diff HEAD^ HEAD
 ```
 
 ### Discard changes
+
 ```sh
 # Discard changes to a single file
 $ git checkout foo
@@ -76,8 +77,9 @@ $ git clean -df
 ```
 
 ### Syncing with remote
+
 ```sh
-# Syn with the remote branch
+# Sync with the remote branch
 $ git fetch
 
 # Sync with the remote branch, and merge it into the local branch
@@ -85,6 +87,7 @@ $ git pull
 ```
 
 ### Staging
+
 ```sh
 # Stage a modified or untracked file
 $ git add foo
@@ -106,6 +109,7 @@ $ git reset -- .
 ```
 
 ### Commit
+
 ```sh
 # List commit history
 $ git log
@@ -138,8 +142,23 @@ $ git rebase -i HEAD~3
 ```
 
 ### Push
+
 ```sh
+# Push changes
 $ git push origin master
+
+# Push changes, overriding the remote
+$ git push origin +master
+```
+
+### Tag
+
+```sh
+# Tag a commit
+$ git tag -a v1.0.0 ea506f6c2c -m '1.0.0'
+
+# Push tags
+$ git push --tags origin master
 ```
 
 ## Aliases
