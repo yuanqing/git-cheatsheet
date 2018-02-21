@@ -86,6 +86,19 @@ $ git fetch
 $ git pull
 ```
 
+### Tag
+
+```sh
+# List all tags
+$ git tag
+
+# Tag a commit
+$ git tag -a v1.0.0 ea506f6c2c -m '1.0.0'
+
+# Push tags
+$ git push --tags origin master
+```
+
 ### Staging
 
 ```sh
@@ -149,16 +162,6 @@ $ git push origin master
 
 # Push changes, overriding the remote
 $ git push origin +master
-```
-
-### Tag
-
-```sh
-# Tag a commit
-$ git tag -a v1.0.0 ea506f6c2c -m '1.0.0'
-
-# Push tags
-$ git push --tags origin master
 ```
 
 ## Aliases
