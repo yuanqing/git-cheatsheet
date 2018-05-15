@@ -11,10 +11,20 @@ $ git init
 $ git remote add origin https://github.com/foo/bar.git
 ```
 
-### Clone
+### Clone repository
 
 ```sh
 $ git clone https://github.com/foo/bar.git
+```
+
+### Syncing with remote
+
+```sh
+# Sync with the remote branch
+$ git fetch
+
+# Sync with the remote branch, and merge it into the local branch
+$ git pull
 ```
 
 ### Branch
@@ -63,43 +73,7 @@ $ git diff --cached
 $ git diff HEAD^ HEAD
 ```
 
-### Discard changes
-
-```sh
-# Discard changes to a single file
-$ git checkout foo
-
-# Discard changes to all files
-$ git checkout -- .
-
-# Delete all untracked files
-$ git clean -df
-```
-
-### Syncing with remote
-
-```sh
-# Sync with the remote branch
-$ git fetch
-
-# Sync with the remote branch, and merge it into the local branch
-$ git pull
-```
-
-### Tag
-
-```sh
-# List all tags
-$ git tag
-
-# Tag a commit
-$ git tag -a v1.0.0 ea506f6c2c -m '1.0.0'
-
-# Push tags
-$ git push --tags origin master
-```
-
-### Staging
+### Stage changes
 
 ```sh
 # Stage a modified or untracked file
@@ -121,7 +95,20 @@ $ git reset -- foo
 $ git reset -- .
 ```
 
-### Commit
+### Unstage changes
+
+```sh
+# Unstage changes to a single file
+$ git checkout foo
+
+# Unstage changes to all files
+$ git checkout -- .
+
+# Delete all untracked files
+$ git clean -df
+```
+
+### Commit changes
 
 ```sh
 # List commit history
@@ -162,6 +149,22 @@ $ git push origin master
 
 # Push changes, overriding the remote
 $ git push origin +master
+```
+
+### Tagging
+
+```sh
+# List all tags
+$ git tag
+
+# Tag a commit
+$ git tag -a v1.0.0 ea506f6c2c -m '1.0.0'
+
+# Delete a tag
+$ git tag -d v1.0.0
+
+# Push tags
+$ git push --tags origin master
 ```
 
 ## Aliases
