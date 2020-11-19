@@ -1,6 +1,6 @@
 # Git Cheatsheet
 
-> A handy list of commonly used Git commands.
+> A handy list of commonly used Git commands
 
 ## Commands
 
