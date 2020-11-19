@@ -4,20 +4,18 @@
 
 ## Commands
 
-### Initialise
+### Create new or download existing repository
 
 ```sh
+# Initialize a new repository
 $ git init
 $ git remote add origin https://github.com/foo/bar.git
-```
 
-### Clone repository
-
-```sh
+# Download an existing remote repository
 $ git clone https://github.com/foo/bar.git
 ```
 
-### Syncing with remote
+### Sync local repository with remote
 
 ```sh
 # Sync with the remote branch
@@ -27,7 +25,7 @@ $ git fetch
 $ git pull
 ```
 
-### Branch
+### Branching
 
 ```sh
 # List all branches
@@ -57,20 +55,17 @@ $ git checkout master
 $ git merge --squash hotfix
 ```
 
-### Review changes
+### Tagging
 
 ```sh
-# View changes made to a file
-$ git diff foo
+# List all tags
+$ git tag
 
-# Compare modified files with the last commit
-$ git diff
+# Tag a commit
+$ git tag -a v1.0.0 ea506f6c2c -m '1.0.0'
 
-# Compare staged files with the last commit
-$ git diff --cached
-
-# Compare the last and second-last commits
-$ git diff HEAD^ HEAD
+# Delete a tag
+$ git tag -d v1.0.0
 ```
 
 ### Stage changes
@@ -82,30 +77,46 @@ $ git add foo
 # Stage a deleted file
 $ git rm foo
 
-# Stage all modified and untracked files (ignores deleted files)
+# Stage all modified or untracked files, ignoring deleted files
 $ git add .
 
-# Stage all modified and deleted files (ignores untracked files)
+# Stage all modified or deleted files, ignoring untracked files
 $ git add -u
-
-# Unstage a single file
-$ git reset -- foo
-
-# Unstage all files
-$ git reset -- .
 ```
 
 ### Unstage changes
 
 ```sh
-# Unstage changes to a single file
+# Unstage a single file
+$ git reset foo
+
+# Unstage all files
+$ git reset -- .
+
+# Restore a single file from the last commit
 $ git checkout foo
 
-# Unstage changes to all files
+# Restore all files from the last commit
 $ git checkout -- .
 
 # Delete all untracked files
 $ git clean -df
+```
+
+### Review changes
+
+```sh
+# See unstaged changes made to a single file
+$ git diff foo
+
+# See unstaged changes made to all files
+$ git diff
+
+# See staged changes made to all files
+$ git diff --cached
+
+# Compare the last and second-last commits
+$ git diff HEAD^ HEAD
 ```
 
 ### Commit changes
@@ -141,7 +152,7 @@ $ git rebase -i HEAD~3
 # 2. Enter a new commit message, then save and quit.
 ```
 
-### Push
+### Push changes to remote
 
 ```sh
 # Push changes
@@ -149,51 +160,11 @@ $ git push origin master
 
 # Push changes, overriding the remote
 $ git push origin +master
-```
-
-### Tagging
-
-```sh
-# List all tags
-$ git tag
-
-# Tag a commit
-$ git tag -a v1.0.0 ea506f6c2c -m '1.0.0'
-
-# Delete a tag
-$ git tag -d v1.0.0
 
 # Push tags
 $ git push --tags origin master
 ```
 
-## Aliases
+## References
 
-Put the following in your `~/.bashrc` or `~/.bash_profile`:
-
-```sh
-alias g='git'
-alias ga='git add'
-alias gb='git branch'
-alias gc='git commit'
-alias gcm='git commit --amend -m'
-alias gcl='git clone'
-alias gco='git checkout'
-alias gd='git diff'
-alias gdc='git diff --cached'
-alias gf='git fetch'
-alias gi='git init'
-alias gl='git log'
-alias gm='git merge'
-alias gp='git push'
-alias gpo='git push origin'
-alias gpom='git push origin master'
-alias gpomt='git push --tag origin master'
-alias gpl='git pull'
-alias gr='git reset'
-alias grao='git remote add origin'
-alias grm='git rm'
-alias gs='git status'
-alias gt='git tag'
-alias gu='git reset --soft HEAD^ && git reset .'
-```
+- [Oh Shit, Git!?!](https://ohshitgit.com/)
