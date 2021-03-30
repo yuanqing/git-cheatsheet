@@ -47,11 +47,11 @@ $ git branch -D hotfix
 $ git push origin :hotfix
 
 # Merge one branch into another
-$ git checkout master
+$ git checkout main
 $ git merge hotfix
 
 # Merge one branch into another as a single commit
-$ git checkout master
+$ git checkout main
 $ git merge --squash hotfix
 ```
 
@@ -133,7 +133,7 @@ $ git commit --amend -m 'bar'
 
 # Amend the last commit message after having done a `git push`
 $ git commit --amend -m 'bar'
-$ git push origin +master
+$ git push origin +main
 
 # Delete the last commit
 $ git reset --soft HEAD~1
@@ -144,27 +144,48 @@ $ git reset -- .
 
 # Delete the last commit after having done a `git push`
 $ git reset --soft HEAD~1
-$ git push origin +master
+$ git push origin +main
+
+# Delete commits from history (eg. delete commits 2 and 4)
+#
+# commit 1: 1ebc709 (keep)
+# commit 2: 2de6867
+# commit 3: 3eba02b (keep)
+# commit 4: 4b632b2
+# commit 5: 56098c5 (keep)
+#
+$ git checkout 56098c5     # commit 5
+$ git checkout -b repair
+$ git cherry-pick 3eba02b  # commit 3
+$ git cherry-pick 1ebc709  # commit 1
+$ git checkout main
+$ git reset --hard 56098c5 # commit 5
+$ git merge repair
+$ git branch -D repair
+$ git push origin +main
 
 # Merge multiple commits (eg. the last 3 commits) into one
-$ git rebase -i HEAD~3
+#
 # 1. Mark all commits other than the first with `squash`, then save and quit.
 # 2. Enter a new commit message, then save and quit.
+#
+$ git rebase -i HEAD~3
 ```
 
 ### Push changes to remote
 
 ```sh
 # Push changes
-$ git push origin master
+$ git push origin main
 
 # Push changes, overriding the remote
-$ git push origin +master
+$ git push origin +main
 
 # Push tags
-$ git push --tags origin master
+$ git push --tags origin main
 ```
 
 ## References
 
 - [Oh Shit, Git!?!](https://ohshitgit.com/)
+- [Delete commits from history](https://stackoverflow.com/a/46049102)
